@@ -13,10 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Reply-To: $email\r\n";
     
     // Send the email
-    mail($to, $subject, $message, $headers);
+    $mailResult = mail($to, $subject, $message, $headers);
 
-    // Send a confirmation response to the user (optional)
-    $response = array("message" => "Message sent successfully");
-    echo json_encode($response);
+    if ($mailResult) {
+        // Send a confirmation response to the user
+        $response = array("message" => "Message sent successfully");
+        echo json_encode($response);
+    } else {
+        // Send an error response to the user
+        http_response_code(500); // Internal Server Error
+        $response = array("message" => "Error sending message");
+        echo json_encode($response);
+    }
 }
 ?>
