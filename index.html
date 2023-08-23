@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
+<!-- Created By Prabhat Kumar -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,6 +37,20 @@
             </div>
         </div>
     </nav>
+    <script>
+        $(document).ready(function(){
+            // Existing code...
+            
+            // Toggle menu/navbar script
+            $('.menu-btn').click(function(){
+                $('.navbar .menu').toggleClass("active");
+                $(this).toggleClass("active"); // Toggle active class on the burger button
+            });
+        });
+    </script>
+
+
+
     <!-- home section start -->
     <section class="home" id="home">
         <div class="max-width">
